@@ -1,0 +1,106 @@
+
+function App() {
+  const content = {
+    1: "content1",
+    2: "content2",
+    3: "content3",
+    4: "content4"
+  }
+  const [count, setCount] = useState(10);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(1);
+  function decrease() {
+    
+
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  }
+  function increase() {
+    setCount(count + 1);
+  }
+
+  function double() {
+    setCount(count * 2);
+
+  }
+  function reset() {
+    setCount(10);
+  }
+  function toggleLogin() {
+    setIsOpen(!isOpen);
+  }
+  function active() {
+    setActiveTab(activeTab + 1);
+  }
+ function cont(activeTab,content) {
+        switch (activeTab) {
+          case 1:
+            <p>content.1</p>;
+            break
+          case 2:
+            <p>content[2]</p>;
+            break;
+          case 3:
+            <p>content[3]</p>;
+            break;
+          case 4:
+            <p>content[4]</p>;
+            break;
+
+        }
+      }
+  return (
+    <div>
+      <h2>{count}</h2>
+      <button onClick={decrease}>
+        decrease
+      </button>
+
+      <button onClick={increase}>
+        increase
+      </button>
+
+      <button onClick={double}>
+        double
+      </button>
+
+      <button onClick={reset}>
+        reset
+      </button>
+
+      <button onClick={toggleLogin}>  login </button>
+      {isOpen && <h2>Account is active</h2>}
+      <br />
+      <button onClick={active} >
+        {console.log({ activeTab })}
+
+        tab1
+      </button>
+
+      <button onClick={active}
+      >
+        {console.log({ activeTab })}
+
+        tab2
+
+      </button>
+      <br />
+      <button onClick={() => setActiveTab(1)}>Tab 1
+        {cont(1)}
+      </button>
+
+
+      <button onClick={() => setActiveTab(2)}>Tab 2</button>
+      <button onClick={() => setActiveTab(3)}>Tab 3</button>
+      <button onClick={() => setActiveTab(4)}>Tab 4</button>
+
+     
+      
+
+    
+    </div >
+
+  );
+
+}
